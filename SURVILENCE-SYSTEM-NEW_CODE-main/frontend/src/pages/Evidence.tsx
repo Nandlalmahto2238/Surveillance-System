@@ -7,8 +7,7 @@ import {
   Image as ImageIcon,
   Video,
   Download,
-  Lock,
-  Play
+  Lock
 } from 'lucide-react';
 import { api } from '../lib/api';
 
