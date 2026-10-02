@@ -9,7 +9,7 @@ import {
   Download,
   Lock
 } from 'lucide-react';
-import { api } from '../lib/api';
+import { api, MEDIA_BASE_URL } from '../lib/api';
 
 export default function Evidence() {
   const [evidenceList, setEvidenceList] = useState<any[]>([]);
@@ -183,7 +183,7 @@ export default function Evidence() {
 
                       {/* Real Photo Thumbnail with Fallback */}
                       <img
-                        src={`http://localhost:8000${item.media_url}`}
+                        src={`${MEDIA_BASE_URL}${item.media_url}`}
                         alt={item.event_name}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         onError={(e) => {
@@ -265,13 +265,13 @@ export default function Evidence() {
               <div className="aspect-video bg-black rounded-lg border border-border flex items-center justify-center overflow-hidden mb-6 relative">
                 {selectedEvidence.media_type === 'video' ? (
                   <video
-                    src={`http://localhost:8000${selectedEvidence.media_url}`}
+                    src={`${MEDIA_BASE_URL}${selectedEvidence.media_url}`}
                     controls
                     className="w-full h-full object-contain"
                   />
                 ) : (
                   <img
-                    src={`http://localhost:8000${selectedEvidence.media_url}`}
+                    src={`${MEDIA_BASE_URL}${selectedEvidence.media_url}`}
                     alt={selectedEvidence.event_name}
                     className="w-full h-full object-contain"
                     onError={(e) => {

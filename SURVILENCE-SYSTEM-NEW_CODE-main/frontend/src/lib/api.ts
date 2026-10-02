@@ -1,14 +1,25 @@
 import axios from 'axios';
 
-const getApiBaseUrl = () => {
-  if (typeof window !== 'undefined' && window.location.hostname) {
-    return `http://${window.location.hostname}:8000/api/v1`;
-  }
-  return 'http://localhost:8000/api/v1';
-};
+export const API_BASE_URL =
+  import.meta.env.VITE_API_URL ||
+  (typeof window !== 'undefined' && window.location.hostname
+    ? `http://${window.location.hostname}:8000/api/v1`
+    : 'http://localhost:8000/api/v1');
+
+export const WS_BASE_URL =
+  import.meta.env.VITE_WS_URL ||
+  (typeof window !== 'undefined' && window.location.hostname
+    ? `ws://${window.location.hostname}:8000/api/v1/ws`
+    : 'ws://localhost:8000/api/v1/ws');
+
+export const MEDIA_BASE_URL =
+  import.meta.env.VITE_MEDIA_BASE_URL ||
+  (typeof window !== 'undefined' && window.location.hostname
+    ? `http://${window.location.hostname}:8000`
+    : 'http://localhost:8000');
 
 export const api = axios.create({
-  baseURL: getApiBaseUrl(),
+  baseURL: API_BASE_URL,
   timeout: 60000,
 });
 
