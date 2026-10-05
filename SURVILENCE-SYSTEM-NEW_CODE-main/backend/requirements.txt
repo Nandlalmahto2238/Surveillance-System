@@ -22,5 +22,8 @@ PyJWT>=2.9.0
 bcrypt>=4.0.0
 python-multipart>=0.0.9
 
-# Video Processing
+# Video Processing & Computer Vision
 websockets>=12.0
+opencv-python-headless>=4.9.0.80
+numpy>=1.26.0
+Pillow>=10.0.0
