@@ -37,6 +37,9 @@ class Settings(BaseSettings):
     SERVER_HOST: str = "0.0.0.0"
     SERVER_PORT: int = 8000
 
+    # Frontend Client URL (for CORS)
+    FRONTEND_URL: str = "http://localhost:5173"
+
     # Groq AI Vision Key (Loaded dynamically from backend/.env)
     GROQ_API_KEY: str = ""
 
